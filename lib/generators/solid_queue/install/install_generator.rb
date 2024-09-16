@@ -19,7 +19,7 @@ class SolidQueue::InstallGenerator < Rails::Generators::Base
 
     # Inject `config.solid_queue.connects_to` if not already present
     gsub_file Pathname(destination_root).join("config/environments/production.rb"),
-    /config\.solid_queue\.connects_to\s+=.*/, # Check for existing `config.solid_queue.connects_to`
+    /^\s*config\.solid_queue\.connects_to\s+=\s+\{.*\}\n/,
     '',
     verbose: false # If found, do nothing
 
